@@ -78,7 +78,6 @@ class AuthorResource extends Resource
         return [
             'index' => Pages\ListAuthors::route('/'),
             'create' => Pages\CreateAuthor::route('/create'),
-            'edit' => Pages\EditAuthor::route('/{record}/edit'),
         ];
     }
 }
