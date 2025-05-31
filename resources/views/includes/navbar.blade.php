@@ -6,8 +6,8 @@
           <!-- Logo -->
           <a href="index.html">
             <div class="flex items-center gap-2">
-              <img src="./img/Logo.png" alt="Logo" class="w-8 lg:w-10">
-              <p class="text-lg lg:text-xl font-bold">Moco</p>
+              <img src="{{ asset('assets\css\img\LogUkdc.png')}}" alt="Logo" class="w-8 lg:w-10">
+              <p class="text-lg lg:text-xl font-bold">Kabar Kampus</p>
             </div>
           </a>
           <button class="lg:hidden text-primary text-2xl focus:outline-none" id="menu-toggle">
@@ -15,17 +15,15 @@
           </button>
         </div>
 
-        <!-- Menu Naviga  si -->
+        <!-- Menu Navigasi -->
         <div id="menu"
           class="hidden lg:flex flex-col lg:flex-row lg:items-center lg:gap-10 w-full lg:w-auto mt-5 lg:mt-0">
           <ul
             class="flex flex-col lg:flex-row items-start lg:items-center gap-4 font-medium text-base w-full lg:w-auto">
             <li><a href="index.html" class="text-primary hover:text-gray-600">Beranda</a></li>
-            <li><a href="gayahidup.html" class="hover:text-primary">Gaya Hidup</a></li>
-            <li><a href="olahraga.html" class="hover:text-primary">Olahraga</a></li>
-            <li><a href="kesehatan.html" class="hover:text-primary">Kesehatan</a></li>
-            <li><a href="politik.html" class="hover:text-primary">Politik</a></li>
-            <li><a href="pariwisata.html" class="hover:text-primary">Pariwisata</a></li>
+            @foreach (\App\Models\NewsCategory::all() as $category)
+            <li><a href="gayahidup.html" class="hover:text-primary">{{$category->title}}</a></li> 
+            @endforeach
           </ul>
         </div>
       </div>
@@ -38,12 +36,8 @@
             id="searchInput" />
           <!-- Icon Search -->
           <span class="absolute inset-y-0 left-3 flex items-center text-slate-400">
-            <img src="/src/img/search.png" alt="search" class="w-4">
+            <img src="{{asset('assets\css\img\search.png')}}" alt="search" class="w-4">
           </span>
         </div>
-        <a href="login.html"
-          class="bg-primary px-8 py-2 rounded-full text-white font-semibold h-fit text-sm lg:text-base">
-          Masuk
-        </a>
       </div>
     </div>

@@ -8,7 +8,6 @@
   <link href="{{ asset('assets/css/output.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
-src/css
 <body>
   <div class="w-full"> 
         @include('includes.navbar')
