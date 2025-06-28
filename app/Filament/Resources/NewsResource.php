@@ -47,7 +47,11 @@ class NewsResource extends Resource
                 FileUpload::make('thumbnail')
                     ->image()
                     ->required()
-                    ->columnSpanfull(),
+                    ->columnSpanfull()
+                        ->image()
+                        ->directory('news-thumbnails') // ini WAJIB agar konsisten
+                        ->required()
+                        ->columnSpanFull(),
                 RichEditor::make('content')
                     ->required(),
             ]);
@@ -58,10 +62,15 @@ class NewsResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('author.name'),
-                TextColumn::make('NewsCategory.title'), 
+                TextColumn::make('newsCategory.title'), 
                 TextColumn::make('title'),
                 TextColumn::make('slug'),
-                ImageColumn::make('thumbnail'),
+                ImageColumn::make('thumbnail')
+                    ->label('Thumbnail')
+                    ->url(fn ($record) => asset('storage/' . $record->thumbnail))
+
+
+    
             ])
             ->filters([
                 SelectFilter::make('author_id')
@@ -74,6 +83,7 @@ class NewsResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
