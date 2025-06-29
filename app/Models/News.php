@@ -12,11 +12,12 @@ class News extends Model
         'title',
         'slug',
         'thumbnail',
-        'content'
+        'content',
+        'is_featured'
     ];
 
      
-    public function Author()
+    public function author()
     {
         return $this->belongsTo(author::class);
     }
@@ -26,7 +27,7 @@ class News extends Model
         return $this->belongsTo(newsCategory::class);
     }
     
-    public function Banner()
+    public function banner()
     {
         return $this->hasOne(Banner::class);
     }
