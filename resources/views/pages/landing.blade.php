@@ -16,7 +16,7 @@
               </div>
               <div class="relative z-10 mb-3" style="padding-left: 10px;">
                 <div class="bg-primary text-white text-xs rounded-lg w-fit px-3 py-1 font-normal mt-3">
-                  {{ $banners->newsCategory->title }}
+                  {{ $banner->news->newsCategory->title }}
                 </div>
                 <p class="text-3xl font-semibold text-white mt-1">
                   {{ $banner->news->title }}
