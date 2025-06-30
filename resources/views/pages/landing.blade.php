@@ -5,26 +5,27 @@
 @section('content')
     <!-- swiper -->
     <div class="swiper mySwiper mt-9">
-      <div class="swiper-wrapper">  
-        <div class="swiper-slide">
+      <div class="swiper-wrapper">
+        @foreach ($banners as $banner)
+          <div class="swiper-slide">
           <a href="detail-MotoGp.html" class="block">
             <div
-              class="relative flex flex-col gap-1 justify-end p-3 h-72 rounded-xl bg-[url('/src/img/SW-Olahraga.png')] bg-cover bg-center overflow-hidden">
+              class="relative flex flex-col gap-1 justify-end p-3 h-72 rounded-xl bg-[url('{{asset('storage/ . $banner->news->thumbnail')}}')] bg-cover bg-center overflow-hidden">
               <div
                 class="absolute inset-x-0 bottom-0 h-full bg-gradient-to-t from-[rgba(0,0,0,0.4)] to-[rgba(0,0,0,0)] rounded-b-xl">
               </div>
               <div class="relative z-10 mb-3" style="padding-left: 10px;">
-                <div class="bg-primary text-white text-xs rounded-lg w-fit px-3 py-1 font-normal mt-3">Kesehatan</div>
-                <p class="text-3xl font-semibold text-white mt-1">Cara Membuat Badan</p>
-                <p class="text-3xl font-semibold text-white mt-1">Menjadi Ideal</p>
+                <div class="bg-primary text-white text-xs rounded-lg w-fit px-3 py-1 font-normal mt-3">{{ $banner -> news -> NewsCategory -> title }}</div>
+                <p class="text-3xl font-semibold text-white mt-1">{{ $banner -> news -> title }}</p>
                 <div class="flex items-center gap-1 mt-1">
-                  <img src="/src/img/User.png" alt="" class="w-5">
-                  <p class="text-white text-xs">Muhamad Rafli</p>
+                  <img src="{{ asset('storage/' . $banner ->news->author->avatar)}}" alt="" class="w-5 h-5 rounded-full ">
+                  <p class="text-white text-xs">{{ $banner->news->author->name}}</p>
                 </div>
               </div>
             </div>
           </a>
         </div>
+        @endforeach
 
         <div class="swiper-slide">
           <a href="detail-MotoGp.html" class="block">
