@@ -6,30 +6,66 @@
     <!-- swiper -->
     <div class="swiper mySwiper mt-9">
       <div class="swiper-wrapper">  
-        @foreach ($banners as $banner)
         <div class="swiper-slide">
           <a href="detail-MotoGp.html" class="block">
             <div
-              class="relative flex flex-col gap-1 justify-end p-3 h-72 rounded-xl bg-[url('{{ asset('storage/' . $banners->news->thumbnail) }}')] bg-cover bg-center overflow-hidden">
+              class="relative flex flex-col gap-1 justify-end p-3 h-72 rounded-xl bg-[url('/src/img/SW-Olahraga.png')] bg-cover bg-center overflow-hidden">
               <div
                 class="absolute inset-x-0 bottom-0 h-full bg-gradient-to-t from-[rgba(0,0,0,0.4)] to-[rgba(0,0,0,0)] rounded-b-xl">
               </div>
               <div class="relative z-10 mb-3" style="padding-left: 10px;">
-                <div class="bg-primary text-white text-xs rounded-lg w-fit px-3 py-1 font-normal mt-3">
-                  {{ $banner->news->newsCategory->title }}
-                </div>
-                <p class="text-3xl font-semibold text-white mt-1">
-                  {{ $banner->news->title }}
-                </p>
+                <div class="bg-primary text-white text-xs rounded-lg w-fit px-3 py-1 font-normal mt-3">Kesehatan</div>
+                <p class="text-3xl font-semibold text-white mt-1">Cara Membuat Badan</p>
+                <p class="text-3xl font-semibold text-white mt-1">Menjadi Ideal</p>
                 <div class="flex items-center gap-1 mt-1">
-                  <img src="{{ asset('storage/' . $banners->news->author->avatar) }}" alt="" class="w-5 h-5 rounded-full">
-                  <p class="text-white text-xs">{{ $banner->news->author->name }}</p>
+                  <img src="/src/img/User.png" alt="" class="w-5">
+                  <p class="text-white text-xs">Muhamad Rafli</p>
                 </div>
               </div>
             </div>
           </a>
         </div>
-        @endforeach
+
+        <div class="swiper-slide">
+          <a href="detail-MotoGp.html" class="block">
+            <div
+              class="relative flex flex-col gap-1 justify-end p-3 h-72 rounded-xl bg-[url('/src/img/SW-Liburan.png')] bg-cover bg-center overflow-hidden">
+              <div
+                class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[rgba(0,0,0,0.4)] to-[rgba(0,0,0,0)] rounded-b-xl">
+              </div>
+              <div class="relative z-10 mb-3" style="padding-left: 10px;">
+                <div class="bg-primary text-white text-xs rounded-lg w-fit px-3 py-1 font-normal mt-3">Pariwisata</div>
+                <p class="text-3xl font-semibold text-white mt-1">Liburan Asik Di Bali</p>
+                <p class="text-3xl font-semibold text-white mt-1">Di Tahun 2025</p>
+                <div class="flex items-center gap-1 mt-1">
+                  <img src="/src/img/User.png" alt="" class="w-5">
+                  <p class="text-white text-xs">Muhamad Rafli</p>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="swiper-slide">
+          <a href="detail-MotoGp.html" class="block">
+            <div
+              class="relative flex flex-col gap-1 justify-end p-3 h-72 rounded-xl bg-[url('/src/img/SW-Makanan.png')] bg-cover bg-center overflow-hidden">
+              <div
+                class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[rgba(0,0,0,0.4)] to-[rgba(0,0,0,0)] rounded-b-xl">
+              </div>
+              <div class="relative z-10 mb-3" style="padding-left: 10px;">
+                <div class="bg-primary text-white text-xs rounded-lg w-fit px-3 py-1 font-normal mt-3">Kesehatan</div>
+                <p class="text-3xl font-semibold text-white mt-1">7 Rekomendasi Makanan</p>
+                <p class="text-3xl font-semibold text-white mt-1">Enak dan Sehat</p>
+                <div class="flex items-center gap-1 mt-1">
+                  <img src="/src/img/User.png" alt="" class="w-5">
+                  <p class="text-white text-xs">Muhamad Rafli</p>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
       </div>
     </div>
 
@@ -46,20 +82,46 @@
         </a>
       </div>
       <div class="grid sm:grid-cols-1 gap-5 lg:grid-cols-4">
-        @foreach ($featureds as $feature)
         <a href="detail-MotoGp.html">
           <div
-            class="border border-slate-200 p-3 rounded-xl hover:border-primary hover:cursor-pointer transition duration-300 ease-in-out"
-            style="height: 100%;">
+            class="border border-slate-200 p-3 rounded-xl hover:border-primary hover:cursor-pointer transition duration-300 ease-in-out">
             <div class="bg-primary text-white rounded-full w-fit px-5 py-1 font-normal ml-2 mt-2 text-sm absolute">
-              {{ $featured->newsCategory->title }}
-            </div>
-            <img src="{{ asset('storage/' . featured->thumbnail) }}" alt="" class="w-full rounded-xl mb-3" style="height: 150px; object-fit: cover;">
-            <p class="font-bold text-base mb-1">{{ $featured->title }}</p>
-            <p class="text-slate-400">{{ \Carbon\Carbon::parse($featured->created_at)->format('d F Y') }}</p>
+              Pariwisata</div>
+            <img src="img/Berita-Liburan.png" alt="" class="w-full rounded-xl mb-3">
+            <p class="font-bold text-base mb-1">Spot Liburan Asyik Di Banyumas Yang Bisa Kamu Kunjungi</p>
+            <p class="text-slate-400">22 Januari 2024</p>
           </div>
         </a>
-        @endforeach
+        <a href="detail-MotoGp.html">
+          <div
+            class="border border-slate-200 p-3 rounded-xl hover:border-primary hover:cursor-pointer transition duration-300 ease-in-out">
+            <div class="bg-primary text-white rounded-full w-fit px-5 py-1 font-normal ml-2 mt-2 text-sm absolute">
+              Politik</div>
+            <img src="img/Berita-Demo.png" alt="" class="w-full rounded-xl mb-3">
+            <p class="font-bold text-base mb-1">Demo Terjadi Di Banyumas <br>Dikarenakan Kenaikan BBM</p>
+            <p class="text-slate-400">22 Januari 2024</p>
+          </div>
+        </a>
+        <a href="detail-MotoGp.html">
+          <div
+            class="border border-slate-200 p-3 rounded-xl hover:border-primary hover:cursor-pointer transition duration-300 ease-in-out">
+            <div class="bg-primary text-white rounded-full w-fit px-4 py-1 font-normal ml-2 mt-2 text-sm absolute">
+              Olahraga</div>
+            <img src="img/Berita-Motor.png" alt="" class="w-full rounded-xl mb-3">
+            <p class="font-bold text-base mb-1">MotoGp 2025 Akan Diadakan Di <br>Sirkuit Mandalika</p>
+            <p class="text-slate-400">22 Januari 2024</p>
+          </div>
+        </a>
+        <a href="detail-MotoGp.html">
+          <div
+            class="border border-slate-200 p-3 rounded-xl hover:border-primary hover:cursor-pointer transition duration-300 ease-in-out">
+            <div class="bg-primary text-white rounded-full w-fit px-4 py-1 font-normal ml-2 mt-2 text-sm absolute">
+              Gaya Hidup</div>
+            <img src="img/Berita-Golf.png" alt="" class="w-full rounded-xl mb-3">
+            <p class="font-bold text-base mb-1">Manfaat Bermain Golf Untuk <br>Menumbuhkan Koneksi</p>
+            <p class="text-slate-400">22 Januari 2024</p>
+          </div>
+        </a>
       </div>
     </div>
 
@@ -76,15 +138,14 @@
         <div
           class="relative col-span-7 lg:row-span-3 border border-slate-200 p-3 rounded-xl hover:border-primary hover:cursor-pointer">
           <a href="detail-MotoGp.html">
-            <div class="bg-primary text-white rounded-full w-fit px-4 py-1 font-normal ml-5 mt-5 absolute">{{ $news[0]->newsCategory->title }}
+            <div class="bg-primary text-white rounded-full w-fit px-4 py-1 font-normal ml-5 mt-5 absolute">Pariwisata
             </div>
-            <img src="{{ asset('storage/' . $news[0]->thumbnail) }}" alt="berita1" class="rounded-2xl">
-            <p class="font-bold text-xl mt-3">
-              {{ $news[0]->title }}
-            </p>
-            <p class="text-slate-400 text-base mt-1">
-              {!! \Str::limit($news[0]->content, 100) !!}
-            </p>
+            <img src="img/Berita-Liburan.png" alt="berita1" class="rounded-2xl">
+            <p class="font-bold text-xl mt-3">Lorem Ipsum Dolor Siamet, Dolor Mamet Lor Ser Met Nass Met Lorem Ipsum
+              Dolor
+              Siamet, Dolor Mamet Lor Ser Met Nass Met </p>
+            <p class="text-slate-400 text-base mt-1">Sekitar 59 persen pencarian kerja mengaku pernah di-ghosting oleh
+              perekrut dan tidak mendapat respons apapun setelah mengirim lamaran...</p>
             <p class="text-slate-400 text-base mt-1">23 Januari 2024</p>
           </a>
         </div>
