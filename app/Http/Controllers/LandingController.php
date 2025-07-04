@@ -12,7 +12,7 @@ class LandingController extends Controller
     public function index()
     {
         $banners = Banner::all();
-        $featured = News::where('is_featured', true)->get(); // dari model news yang mana kolom featured adalah true
+        $featureds = News::where('is_featured', true)->get(); // dari model news yang mana kolom featured adalah true
  
         return view('pages.landing', compact('banners', 'featureds'));
     }
