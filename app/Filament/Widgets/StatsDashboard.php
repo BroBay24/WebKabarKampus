@@ -69,7 +69,7 @@ class StatsDashboard extends BaseWidget
                 ->description($deskripsiMingguan)
                 ->descriptionIcon($ikonMingguan),
 
-            Stat::make('Berita Hari Ini', $todayNewsCount . ' Berita')
+            Stat::make('Berita Hari Ini ', $todayNewsCount . ' Berita')
                 ->description($deskripsi)
                 ->descriptionIcon($icon),
 

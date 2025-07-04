@@ -9,8 +9,8 @@
         @foreach ($banners as $banner)
           <div class="swiper-slide">
           <a href="detail-MotoGp.html" class="block">
-            <div
-              class="relative flex flex-col gap-1 justify-end p-3 h-72 rounded-xl bg-[url('{{asset('storage/ . $banner->news->thumbnail')}}')] bg-cover bg-center overflow-hidden">
+            <div class="relative flex flex-col gap-1 justify-end p-3 h-72 rounded-xl bg-cover bg-center overflow-hidden" 
+              style="background-image: url('{{asset('storage/' . $banner->news->thumbnail) }}')">
               <div
                 class="absolute inset-x-0 bottom-0 h-full bg-gradient-to-t from-[rgba(0,0,0,0.4)] to-[rgba(0,0,0,0)] rounded-b-xl">
               </div>

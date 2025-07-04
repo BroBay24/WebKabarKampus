@@ -14,6 +14,8 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
+use Filament\Forms\Components\Toggle;
+use Filament\Tables\Columns\ToggleColumn;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
@@ -53,7 +55,9 @@ class NewsResource extends Resource
                         ->required()
                         ->columnSpanFull(),
                 RichEditor::make('content')
-                    ->required(),
+                    ->required()
+                    ->columnSpanFull(),
+                Toggle::make('is_featured')
             ]);
     }
 
@@ -67,10 +71,9 @@ class NewsResource extends Resource
                 TextColumn::make('slug'),
                 ImageColumn::make('thumbnail')
                     ->label('Thumbnail')
-                    ->url(fn ($record) => asset('storage/' . $record->thumbnail))
+                    ->url(fn ($record) => asset('storage/' . $record->thumbnail)),
+                ToggleColumn::make('is_featured')
 
-
-    
             ])
             ->filters([
                 SelectFilter::make('author_id')
