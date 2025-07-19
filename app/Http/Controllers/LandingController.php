@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Banner; 
+use App\Models\News;   
+use App\Models\Author;
+
 
 class LandingController extends Controller
 {
@@ -10,8 +14,9 @@ class LandingController extends Controller
     {
         $banners = Banner::all();
         $featureds = News::where('is_featured', true)->get();
-        $news = News::orderBy('created_at', 'desc')->get()->take(4);
-        
-        return view('pages.landing', compact('banners', 'featureds', 'news'));
+        $news = News::orderBy('created_at', 'desc')->take(4)->get(); // Better for performance
+        $authors = Author::take(5)->get(); // Fixed here
+
+        return view('pages.landing', compact('banners', 'featureds', 'news', 'authors'));
     }
 }
