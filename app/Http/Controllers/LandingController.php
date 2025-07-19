@@ -14,8 +14,17 @@ class LandingController extends Controller
     public function index()
     {
         $banners = Banner::all();
-        $featureds = News::where('is_featured', true)->get(); // dari model news yang mana kolom featured adalah true
+<<<<<<< HEAD
+        $featured = News::where('is_featured', true)->get(); // dari model news yang mana kolom featured adalah true
+        $news = News::orderBy('created_at', 'desc')->take(4)->get();
+        $authors = Author::all()->take(5);
  
-        return view('pages.landing', compact('banners', 'featureds'));
+        return view('pages.landing', compact('banners', 'featured', 'news', 'authors'));
+=======
+        $featureds = News::where('is_featured', true)->get(); // dari model news yang mana kolom featured adalah true
+        $news = News::orderBy('created_at', 'desc')->get()->take(4);
+ 
+        return view('pages.landing', compact('banners', 'featureds', 'news'));
+>>>>>>> d298ea526d973fc53542ca0671b7ec1dd86bea98
     }
 }
