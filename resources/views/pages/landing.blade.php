@@ -20,6 +20,7 @@
                 <div class="flex items-center gap-1 mt-1">
                   <img src="{{ asset('storage/' . $banner ->news->author->avatar)}}" alt="" class="w-5 h-5 rounded-full ">
                   <p class="text-white text-xs">{{ $banner->news->author->name}}</p>
+                  
                 </div>
               </div>
             </div>
@@ -45,12 +46,12 @@
         @foreach ( $featured as $featured)
           <a href="detail-MotoGp.html">
           <div
-            class="border border-slate-200 p-3 rounded-xl hover:border-primary hover:cursor-pointer transition duration-300 ease-in-out" style="height: 100%">
+            class="border border-slate-200 p-3 rounded-xl hover:border-primary hover:cursor-pointer transition duration-300 ease-in-out">
             <div class="bg-primary text-white rounded-full w-fit px-5 py-1 font-normal ml-2 mt-2 text-sm absolute">
                 {{ $featured->NewsCategory->title }}
             </div>
             <img src=" {{ asset('storage/' . $featured->thumbnail) }}" alt="" 
-              class="w-full rounded-xl mb-3" style="height: 150px; object-fit: cover;">
+              class="w-full rounded-xl mb-3" style="height: 200px; object-full">
             <p class="font-bold text-base mb-1">{{$featured->title}}</p>
             <p class="text-slate-400">{{ \Carbon\Carbon::parse($featured->created_at)->format('d F Y') }}</p>
           </div>
@@ -75,16 +76,13 @@
             <div class="bg-primary text-white rounded-full w-fit px-4 py-1 font-normal ml-5 mt-5 absolute">
               {{ $news[0]->newsCategory->title }}
             </div>
-            <img src="{{ asset('storage/' . $news[0]->thumbnail) }}" alt="berita1" class="rounded-2xl">
-            <p class="font-bold text-xl mt-3">
-              {{ $news[0]->title }}
-            </p>
-            <p class="text-slate-400 text-base mt-1">
-              {!! Str::limit($news[0]->content, 100) !!}
-            </p>
-            <p class="text-slate-400 text-base mt-1">
-              {{ \Carbon\Carbon::parse($featured->created_at)->format('d F Y') }}
-            </p>
+            <img src="img/Berita-Liburan.png" alt="berita1" class="rounded-2xl">
+            <p class="font-bold text-xl mt-3">Lorem Ipsum Dolor Siamet, Dolor Mamet Lor Ser Met Nass Met Lorem Ipsum
+              Dolor
+              Siamet, Dolor Mamet Lor Ser Met Nass Met </p>
+            <p class="text-slate-400 text-base mt-1">Sekitar 59 persen pencarian kerja mengaku pernah di-ghosting oleh
+              perekrut dan tidak mendapat respons apapun setelah mengirim lamaran...</p>
+            <p class="text-slate-400 text-base mt-1">23 Januari 2024</p>
           </a>
         </div>
 
