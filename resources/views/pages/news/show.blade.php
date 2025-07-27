@@ -12,7 +12,7 @@
     <div class="flex flex-col lg:flex-row w-full gap-10">
       <!-- Berita Utama -->
       <div class="lg:w-8/12">
-        <img src="{{ asset('storage/' . $news->thumbnail) }}" alt="MotoGP" class="w-full max-h-96 rounded-xl object-cover">
+        <img src="{{ asset('storage/' . $news->thumbnail) }}" alt="" class="w-full max-h-96 rounded-xl object-cover">
         
             {!! $news->content !!} 
 
