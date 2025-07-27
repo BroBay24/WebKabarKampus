@@ -4,11 +4,11 @@
 
 @section('content')
     <!-- swiper -->
-    <div class="swiper mySwiper mt-9">
+   <div class="swiper mySwiper mt-9">
       <div class="swiper-wrapper">
-        @foreach ($banners as $banner)
+        @foreach ($banners as $banner) 
           <div class="swiper-slide">
-          <a href="detail-MotoGp.html" class="block">
+          <a href="{{ route('news.show', $banner->news->slug) }}" class="block">
             <div class="relative flex flex-col gap-1 justify-end p-3 h-72 rounded-xl bg-cover bg-center overflow-hidden" 
               style="background-image: url('{{asset('storage/' . $banner->news->thumbnail) }}')">
               <div
@@ -42,11 +42,14 @@
           Lihat Semua
         </a>
       </div>
-      <div class="grid sm:grid-cols-1 gap-5 lg:grid-cols-4">
+
+     <div class="grid sm:grid-cols-1 gap-5 lg:grid-cols-4">
         @foreach ( $featured as $featured)
-          <a href="detail-MotoGp.html">
+          <a href=" {{ route('news.show', $featured->slug) }} ">
           <div
-            class="border border-slate-200 p-3 rounded-xl hover:border-primary hover:cursor-pointer transition duration-300 ease-in-out">
+            class="border border-slate-200 p-3 rounded-xl hover:border-primary hover:cursor-pointer transition duration-300 ease-in-out"
+            style="height: 100%">
+
             <div class="bg-primary text-white rounded-full w-fit px-5 py-1 font-normal ml-2 mt-2 text-sm absolute">
                 {{ $featured->NewsCategory->title }}
             </div>
@@ -56,8 +59,10 @@
             <p class="text-slate-400">{{ \Carbon\Carbon::parse($featured->created_at)->format('d F Y') }}</p>
           </div>
         </a>
+        
         @endforeach
       </div>
+
     </div>
 
     <!-- Berita Terbaru -->
@@ -71,42 +76,41 @@
       <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-12 gap-5">
         <!-- Berita Utama -->
         <div
-          class="relative col-span-7 lg:row-span-3 border border-slate-200 p-3 rounded-xl hover:border-primary hover:cursor-pointer">
-          <a href="detail-MotoGp.html">
+      class="relative col-span-7 lg:row-span-3 border border-slate-200 p-3 rounded-xl hover:border-primary hover:cursor-pointer">
+          <a href="{{ route('news.show', $news[0]->slug) }}">
             <div class="bg-primary text-white rounded-full w-fit px-4 py-1 font-normal ml-5 mt-5 absolute">
               {{ $news[0]->newsCategory->title }}
             </div>
-            <img src="img/Berita-Liburan.png" alt="berita1" class="rounded-2xl">
-            <p class="font-bold text-xl mt-3">Lorem Ipsum Dolor Siamet, Dolor Mamet Lor Ser Met Nass Met Lorem Ipsum
-              Dolor
-              Siamet, Dolor Mamet Lor Ser Met Nass Met </p>
-            <p class="text-slate-400 text-base mt-1">Sekitar 59 persen pencarian kerja mengaku pernah di-ghosting oleh
-              perekrut dan tidak mendapat respons apapun setelah mengirim lamaran...</p>
+            <img src=" {{ asset('storage/' . $news[0]->thumbnail) }}" alt="berita1" class="rounded-2xl">
+            <p class="font-bold text-xl mt-3">
+              {{ $news[0]->title }}
+            </p>
+            <p class="text-slate-400 text-base mt-1">
+              {!! \Str::limit($news[0]->content, 100) !!}
+            </p>
             <p class="text-slate-400 text-base mt-1">23 Januari 2024</p>
           </a>
         </div>
 
-        <!-- Berita 1 -->
-        @foreach ($news->skip(1) as $new)
-        <a href="detail-MotoGp.html"
-          class="relative col-span-5 flex flex-col h-fit md:flex-row gap-3 border border-slate-200 p-3 rounded-xl hover:border-primary hover:cursor-pointer">
-          <div class="bg-primary text-white rounded-full w-fit px-4 py-1 font-normal ml-2 mt-2 absolute text-sm">
-            {{ $new->newsCategory->title }}
-          </div>
-          <img src="{{ asset('storage/' . $new->thumbnail) }}" alt="berita2" class="rounded-xl md:max-h-48">
-          <div class="mt-2 md:mt-0" style="width: 250px; object-fit: cover;">
-            <p class="font-semibold text-lg">
-              {{ $new->title }}
-            </p>
-            <p class="text-slate-400 mt-3 text-sm font-normal">
-              {!! Str::limit($new->content, 100) !!}
-            </p>
-          </div>
-        </a>
-        @endforeach
-      </div>
-
+       <!-- Berita 1 -->
+      @foreach ($news->skip(1) as $new)
+<a href="{{ route('news.show', $new->slug) }}"
+    class="relative col-span-5 flex flex-col h-fit md:flex-row gap-3 border border-slate-200 p-3 rounded-xl hover:border-primary hover:cursor-pointer">
+    <div class="bg-primary text-white rounded-full w-fit px-4 py-1 font-normal ml-2 mt-2 absolute text-sm">
+        {{ $new->newsCategory->title }}
     </div>
+    <img src="{{ asset('storage/'. $new->thumbnail) }}" alt="{{ $new->title }}" 
+         class="rounded-xl w-full md:max-h-48 object-cover" style="width: 250px;">
+    <div class="mt-2 md:mt-0">
+        <p class="font-semibold text-lg">{{ $new->title }}</p>
+        <p class="text-slate-400 mt-3 text-sm font-normal">
+            {!! \Str::limit($new->content, 100) !!}
+        </p>
+    </div>
+</a>
+@endforeach
+  </div>
+</div>
 
     <!-- Author -->
     <div class="flex flex-col px-4 md:px-10 lg:px-14 mt-10">
@@ -116,9 +120,10 @@
           <p>Terbaik Dari Kami</p>
         </div>
         <a href="register.html" class="bg-primary px-5 py-2 rounded-full text-white font-semibold mt-4 md:mt-0 h-fit">
-          Gabung Menjadi Author
+          Gabung Menjadi penulis UKDC
         </a>
       </div>
+
       <div class="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
         <!-- Author 1 -->
         @foreach ($authors as $author)
@@ -141,6 +146,7 @@
           <p>Pilihan Author</p>
         </div>
       </div>
+      
       <div class="grid sm:grid-cols-1 gap-5 lg:grid-cols-4">
         @foreach ($news as $choice)
         <a href="detail-MotoGp.html">
