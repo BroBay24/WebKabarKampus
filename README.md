@@ -11,7 +11,7 @@ Website berita kampus yang menyajikan informasi terbaru seputar dunia perkuliaha
 ## Teknologi yang Digunakan
 
 - Frontend:
-  - HTML5
+  - Blade
   - CSS3 (Bootstrap)
   - JavaScript
   
