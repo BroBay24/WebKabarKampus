@@ -1,4 +1,4 @@
-# Web Kabar Kampus
+# Portal Beritaa Kabar Kampus
 
 Website berita kampus yang menyajikan informasi terbaru seputar dunia perkuliahan, kegiatan mahasiswa, dan berbagai informasi penting lainnya untuk civitas akademika.
 ## Fitur Utama
