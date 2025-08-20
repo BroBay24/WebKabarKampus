@@ -25,7 +25,7 @@ class StatsDashboard extends BaseWidget
         // Persentase kenaikan berita harian
         if ($yesterdayNewsCount > 0) {
             $persentaseKenaikan = round((($todayNewsCount - $yesterdayNewsCount) / $yesterdayNewsCount) * 100, 2);
-        } else {
+        } else {    
             $persentaseKenaikan = $todayNewsCount > 0 ? 100 : 0;
         }
 

@@ -10,7 +10,7 @@
       <p>{{ $news->title }}</p>
     </div>
     <div class="flex flex-col lg:flex-row w-full gap-10">
-      <!-- Berita Utama -->
+      <!-- Berita Utama --> 
       <div class="lg:w-8/12">
         <img src="{{ asset('storage/' . $news->thumbnail) }}" alt="" class="w-full max-h-96 rounded-xl object-cover">
         
@@ -26,14 +26,14 @@
 
             
             @foreach ($newest as $new)
-            <a href="detail-MotoGp.html">
+            <a href="{{ route('news.show', $new->slug) }}">
               <div class="flex gap-3 border border-slate-300 hover:border-primary p-3 rounded-xl">
                 <div class="bg-primary text-white rounded-full w-fit px-5 py-1 ml-2 mt-2 font-normal text-xs absolute">
                   {{ $new->newsCategory->title }}
                 </div>
                 <div class="flex gap-3 flex-col lg:flex-row">
                   <img src="{{ asset('storage/' . $new->thumbnail) }}" alt="" class="max-h-36 rounded-xl object-cover">
-                  <div class="">
+                  <div>
                     <p class="font-bold text-sm lg:text-base">{{ $new->title }}</p>
                     <p class="text-slate-400 mt-2 text-sm lg:text-xs">{{ \Str::limit($new->content, 60) }}</p>
                   </div>

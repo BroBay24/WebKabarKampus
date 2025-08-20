@@ -1,34 +1,55 @@
 @extends('layouts.app')
 
-@section('title', 'Moco | Baca Berita Online')
+@section('title', 'Kabar Kampus | Portal Berita Ukdc')
 
 @section('content')
     <!-- swiper -->
     <div class="swiper mySwiper mt-9">
         <div class="swiper-wrapper">
-            @foreach ($banners as $banner)
+            <!-- swiper -->
+<div class="swiper mySwiper mt-9">
+    <div class="swiper-wrapper">
+        @foreach ($banners as $banner)
+            @if ($banner->news)
                 <div class="swiper-slide">
                     <a href="{{ route('news.show', $banner->news->slug) }}" class="block">
                         <div class="relative flex flex-col gap-1 justify-end p-3 h-72 rounded-xl bg-cover bg-center overflow-hidden"
                             style="background-image: url('{{ asset('storage/' . $banner->news->thumbnail) }}')">
-                            <div
-                                class="absolute inset-x-0 bottom-0 h-full bg-gradient-to-t from-[rgba(0,0,0,0.4)] to-[rgba(0,0,0,0)] rounded-b-xl">
-                            </div>
+                            
+                            <!-- Gradient Overlay -->
+                            <div class="absolute inset-x-0 bottom-0 h-full bg-gradient-to-t from-[rgba(0,0,0,0.4)] to-[rgba(0,0,0,0)] rounded-b-xl"></div>
+                            
+                            <!-- Content -->
                             <div class="relative z-10 mb-3" style="padding-left: 10px;">
-                                <div class="bg-primary text-white text-xs rounded-lg w-fit px-3 py-1 font-normal mt-3">
-                                    {{ $banner->news->newsCategory->title }}
-                                </div>
-                                <p class="text-3xl font-semibold text-white mt-1">{{ $banner->news->title }}</p>
-                                <div class="flex items-center gap-1 mt-1">
-                                    <img src="{{ asset('storage/' . $banner->news->author->avatar) }}" alt=""
-                                        class="w-5 h-5 rounded-full">
-                                    <p class="text-white text-xs">{{ $banner->news->author->name }}</p>
-                                </div>
+                                <!-- Category -->
+                                @if ($banner->news->newsCategory)
+                                    <div class="bg-primary text-white text-xs rounded-lg w-fit px-3 py-1 font-normal mt-3">
+                                        {{ $banner->news->newsCategory->title }}
+                                    </div>
+                                @endif
+
+                                <!-- Title -->
+                                <p class="text-3xl font-semibold text-white mt-1">
+                                    {{ $banner->news->title }}
+                                </p>
+
+                                <!-- Author -->
+                                @if ($banner->news->author)
+                                    <div class="flex items-center gap-1 mt-1">
+                                        <img src="{{ asset('storage/' . $banner->news->author->avatar) }}" alt="Author Avatar"
+                                            class="w-5 h-5 rounded-full">
+                                        <p class="text-white text-xs">{{ $banner->news->author->name }}</p>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </a>
                 </div>
-            @endforeach
+            @endif
+        @endforeach
+    </div>
+</div>
+
         </div>
     </div>
 
